@@ -57,7 +57,7 @@ export default function Home() {
             <p>Loading...</p>
           ) : (
             <>
-              <div className="text-xl mb-8">Efficient-ship - Computation parameters</div>
+              <div className="text-xl mb-8">Efficientship - Computation parameters</div>
               {options?.items?.map(option => (
                 <div key={option.id}>
                   <div className="text-lg my-6 bg-headerBg p-3">
@@ -75,13 +75,14 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              <Button
-                onClick={handleModal(true)}
-                className={`mt-6 bg-btnLaunchDefault hover:bg-btnLaunchHover`}
-                tabIndex={0}
-              >
-                Launch computation
-              </Button>
+              {Object.keys(selectedOptions).length === options?.items.length && (
+                <Button
+                  onClick={handleModal(true)}
+                  className={`mt-6 bg-btnLaunchDefault hover:bg-btnLaunchHover`}
+                >
+                  Launch computation
+                </Button>
+              )}
             </>
           )}
         </div>
